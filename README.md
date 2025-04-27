@@ -64,7 +64,7 @@
 ## ```⭐ session pair ⭐```
 
    <br>
-   <a href='https://spider-bot-pair.onrender.com' target="_blank">
+   <a href='https://spider-pair-2.onrender.com' target="_blank">
      <img src='https://img.shields.io/badge/pair_code & qr-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=red&style=flat-square'>
    </a>
 

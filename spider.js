@@ -1506,7 +1506,7 @@ m.reply("*Wait a moment...*");
 //========================================================================================================================//		      
 	      case '1917': {		      
 		      if (!text || text == "") {
-      m.reply("Example Usage : " + prefix + "1917 spider);
+      m.reply("Example Usage : " + prefix + "1917 spider");
       return;
     }
 	try {

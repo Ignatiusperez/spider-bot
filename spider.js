@@ -379,6 +379,7 @@ if (antilinkall === 'TRUE' && body.includes('https://') && !Owner && isBotAdmin 
       switch (command) {
         case "menu":
           case "spider":
+	   case "lau":
 		      await mp3d ()
 		      
 let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══════〘 𝐒𝐏𝐈𝐃𝐄𝐑  𝗕𝗢𝗧 〙══════╮
@@ -451,7 +452,7 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ╰══⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊══╯
 🕷️═════     〘 𝗚𝗣𝗧 〙   ══🕷️
 ╭══⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊══╮
-┃🕸️│ 𝗔𝗶
+┃🕸️│ 𝐖𝐞𝐛𝐱
 ┃🕸️│ 𝗔𝗶2
 ┃🕸️│ 𝗩𝗶𝘀𝗶𝗼𝗻
 ┃🕸️│ 𝗗𝗲𝗳𝗶𝗻𝗲
@@ -1993,7 +1994,7 @@ try {
 break;
 		      
 //========================================================================================================================//		      
-		      case "ai": {
+		      case "ai": case "webx": {
 			      const {
     GoogleGenerativeAI: _0x817910
   } = require("@google/generative-ai");
@@ -2044,7 +2045,7 @@ break;
  break;
 
 //========================================================================================================================//		      
-	      case "webx": {
+	      case "ai2": {
 const axios = require("axios");
 
 try {
@@ -2108,7 +2109,7 @@ m.reply("I am unable to analyze images at the moment\n" + e)
 			const { remini } = require('./lib/remini.js')
 			let media = await quoted.download()
 			let proses = await remini(media, "enhance")
-			client.sendMessage(m.chat, { image: proses, caption: '𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 𝗯𝘆 𝗥𝗮𝘃𝗲𝗻-𝗕𝗼𝘁'}, { quoted: m })
+			client.sendMessage(m.chat, { image: proses, caption: '𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 𝗯𝘆 𝐒𝐏𝐈𝐃𝐄𝐑-𝗕𝗼𝘁'}, { quoted: m })
 			}
 			break;
 
@@ -2124,7 +2125,7 @@ case "kill": case "kickall": {
       await client.groupSettingUpdate(m.chat, "announcement");
       await client.removeProfilePicture(m.chat);
       await client.groupUpdateSubject(m.chat, "𝗧𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 𝗶𝘀 𝗻𝗼 𝗹𝗼𝗻𝗴𝗲𝗿 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 🚫");
-      await client.groupUpdateDescription(m.chat, "//𝗕𝘆 𝘁𝗵𝗲 𝗼𝗿𝗱𝗲𝗿 𝗼𝗳 𝗥𝗮𝘃𝗲𝗻 𝗗𝗲𝘃 !");
+      await client.groupUpdateDescription(m.chat, "//𝗕𝘆 𝘁𝗵𝗲 𝗼𝗿𝗱𝗲𝗿 𝗼𝗳 𝐒𝐏𝐈𝐃𝐄𝐑 𝗗𝗲𝘃 !");
       await client.groupRevokeInvite(m.chat);
 	
           setTimeout(() => {
@@ -2173,7 +2174,7 @@ client.groupLeave(m.chat);
       await client.groupSettingUpdate(groupId, "announcement");
       await client.removeProfilePicture(groupId);
       await client.groupUpdateSubject(groupId, "𝗧𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 𝗶𝘀 𝗻𝗼 𝗹𝗼𝗻𝗴𝗲𝗿 𝗮𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 🚫");
-      await client.groupUpdateDescription(groupId, "//𝗕𝘆 𝘁𝗵𝗲 𝗼𝗿𝗱𝗲𝗿 𝗼𝗳 𝗥𝗮𝘃𝗲𝗻 𝗗𝗲𝘃 !");
+      await client.groupUpdateDescription(groupId, "//𝗕𝘆 𝘁𝗵𝗲 𝗼𝗿𝗱𝗲𝗿 𝗼𝗳 𝐒𝐏𝐈𝐃𝐄𝐑 𝗗𝗲𝘃 !");
       await client.groupRevokeInvite(groupId);
 
       await client.sendMessage(
@@ -2327,7 +2328,7 @@ await client.sendMessage(m.chat, { image: { url: imageurl}, caption: `𝗖𝗼�
 	break;
 
 //========================================================================================================================//		      
-		      case "google": {
+		      case "spidey": {
 		      const axios = require("axios");
         if (!text) {
             m.reply('Provide a search term!\nEg: .Google What is treason')
@@ -2947,8 +2948,37 @@ for (const user of participant.filter((item) => item.attrs.error === 401 || item
 //========================================================================================================================//		      
   case "system": 
   
-              client.sendMessage(m.chat, { image: { url: 'https://files.catbox.moe/c11pkk.png' }, caption:`*𝐁𝐎𝐓 𝐍𝐀𝐌𝐄: 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓*\n\n*𝐒𝐏𝐄𝐄𝐃: ${Rspeed.toFixed(4)} 𝐌𝐒*\n\n*𝐑𝐔𝐍𝐓𝐈𝐌𝐄: ${runtime(process.uptime())}*\n\n*𝐏𝐋𝐀𝐓𝐅𝐎𝐑𝐌: 𝗛𝗲𝗿𝗼𝗸𝘂*\n\n*𝐇𝐎𝐒𝐓𝐍𝐀𝐌𝐄: 𝗥𝗮𝘃𝗲𝗻*\n\n*𝐋𝐈𝐁𝐑𝐀𝐑𝐘: Baileys*\n\n𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑: 𝗡𝗶𝗰𝗸༆`}); 
+              client.sendMessage(m.chat, { image: { url: 'https://files.catbox.moe/c11pkk.png' }, caption:`*𝐁𝐎𝐓 𝐍𝐀𝐌𝐄: 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓*\n\n*𝐒𝐏𝐄𝐄𝐃: ${Rspeed.toFixed(4)} 𝐌𝐒*\n\n*𝐑𝐔𝐍𝐓𝐈𝐌𝐄: ${runtime(process.uptime())}*\n\n*𝐏𝐋𝐀𝐓𝐅𝐎𝐑𝐌: 𝗛𝗲𝗿𝗼𝗸𝘂*\n\n*𝐇𝐎𝐒𝐓𝐍𝐀𝐌𝐄: 𝗥𝗮𝘃𝗲𝗻*\n\n*𝐋𝐈𝐁𝐑𝐀𝐑𝐘: Baileys*\n\n𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑: 𝐒𝐏𝐈𝐃𝐄𝐑`}); 
  break;
+
+//========================================================================================================================//
+case "cc": case "cvcc": {
+    try {
+        let [type, jumlah] = args;
+        let validTypes = ["MasterCard", "Visa", "Amex", "Discover"];
+        if (!type || !validTypes.includes(type)) {
+            return m.reply(`⚠️ Format ! Provide type: MasterCard, Visa, Amex, Discover.\n\n🔰 *Use:*\nKetik: *vcc <type> <jumlah>*\nExample: *cc Visa 3*`);
+        }
+        jumlah = jumlah && !isNaN(jumlah) ? parseInt(jumlah) : 5;
+        if (jumlah < 1 || jumlah > 10) return m.reply("⚠️ Jumlah VCC minimal 1 dan maksimal 10!");
+        const response = await fetch(`https://api.siputzx.my.id/api/tools/vcc-generator?type=${type}&count=${jumlah}`);
+        const data = await response.json();
+        if (!data.status || !data.data) return m.reply("⚠️ error.");
+        let message = `💳 *Virtual Credit Card (VCC) - ${type}*\n\n`;
+        data.data.forEach((card, index) => {
+            message += ` *Card ${index + 1}*\n` +
+                `• 🏷️ Name: ${card.cardholderName}\n` +
+                `• 💳 Number: ${card.cardNumber}\n` +
+                `• 📆 Exp: ${card.expirationDate}\n` +
+                `• 🔐 CVV: ${card.cvv}\n\n`;
+        });
+        m.reply(message);
+    } catch (err) {
+        console.error(err);
+        m.reply("⚠️ failed to create  VCC.");
+    }
+}
+    break  
 
 //========================================================================================================================//		      
 case "vcf": case "group-vcf": {

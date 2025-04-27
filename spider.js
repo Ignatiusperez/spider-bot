@@ -1735,7 +1735,7 @@ m.reply("*Wait a moment...*");
 		break;
 		      
 //========================================================================================================================//
-case "spider:
+case "spider":
 		{
         if (!text) return reply(`Hello there, what's your question?`);
           let d = await fetchJson(

@@ -469,6 +469,7 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝗔𝗽𝗽𝗿𝗼𝘃𝗲
 ┃🕸️│ 𝗥𝗲𝗷𝗲𝗰𝘁
 ┃🕸️│ 𝗣𝗿𝗼𝗺𝗼𝘁𝗲
+┃🕸️│ 𝐥𝐢𝐬𝐭𝐨𝐧𝐥𝐢𝐧𝐞
 ┃🕸️│ 𝗗𝗲𝗺𝗼𝘁𝗲
 ┃🕸️│ 𝗗𝗲𝗹𝗲𝘁𝗲
 ┃🕸️│ 𝗥𝗲𝗺𝗼𝘃𝗲
@@ -607,6 +608,12 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝗨𝗿𝗹
 ┃🕸️│ 𝗜𝗺𝗮𝗴𝗲
 ┃🕸️│ 𝗦𝘆𝘀𝘁𝗲𝗺
+┃🕸️│ 𝐜𝐜
+┃🕸️│ 𝐓𝐫𝐚𝐜𝐤 𝐢𝐩
+┃🕸️│ 𝐭𝐢𝐤𝐭𝐨𝐤𝐬𝐭𝐚𝐥𝐤
+┃🕸️│ 𝐢𝐠𝐬𝐭𝐚𝐥𝐤
+┃🕸️│ 𝐜𝐨𝐮𝐧𝐭𝐫𝐲
+┃🕸️│ 𝐜𝐚𝐥𝐜𝐮𝐥𝐚𝐭𝐨𝐫
 ┃🕸️│═⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊
 ┃🕸️│  𝗠𝗮𝗱𝗲 𝗢𝗻 𝗘𝗮𝗿𝘁𝗵 𝗕𝘆 𝐒𝐏𝐈𝐃𝐄𝐑!
 ╰═══════════════════════╯`;
@@ -660,6 +667,72 @@ client.sendContact(m.chat, Dev, m)
 break;
 
 //========================================================================================================================//
+case 'listonline': case 'liston': {
+				if (!m.isGroup) return m.reply(mess.group)
+				let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
+				if (!store.presences || !store.presences[id]) return m.reply('This is the online list!')
+				let online = [...Object.keys(store.presences[id]), botNumber]
+				await Bellah.sendMessage(m.chat, { text: 'List Online:\n\n' + online.map(v => setv + ' @' + v.replace(/@.+/, '')).join`\n`, mentions: online }, { quoted: m }).catch((e) => m.reply('Gagal'))
+			}
+			break;		      
+		      
+//========================================================================================================================//
+case "calculator":{
+if (text.split("+")[0] && text.split("+")[1]) {
+const nilai_one = Number(text.split("+")[0])
+const nilai_two = Number(text.split("+")[1])
+reply(`${nilai_one + nilai_two}`)
+} else if (text.split("-")[0] && text.split("-")[1]) {
+const nilai_one = Number(text.split("-")[0])
+const nilai_two = Number(text.split("-")[1])
+reply(`${nilai_one - nilai_two}`)
+} else if (text.split("×")[0] && text.split("×")[1]) {
+const nilai_one = Number(text.split("×")[0])
+const nilai_two = Number(text.split("×")[1])
+reply(`${nilai_one * nilai_two}`)
+} else if (text.split("÷")[0] && text.split("÷")[1]) {
+const nilai_one = Number(text.split("÷")[0])
+const nilai_two = Number(text.split("÷")[1])
+reply(`${nilai_one / nilai_two}`)
+} else reply(`*Example* : ${prefix + command} 1 + 1`)
+}
+break;
+            		      
+//========================================================================================================================//			      
+case 'tiktokstalk':
+case 'ttstalk': {
+    if (!text) return m.reply(`Provide TikTok Username\n\nExample: ${prefix + command} `);
+    Bellah.sendMessage(m.chat, { react: { text: '🕒', key: m.key } });
+    
+    try {
+        const respon = await fetchJson(`https://api.elxyzgpt.xyz/stalk/tiktok?apikey=KC-d25a3f0c02be4021&username=${encodeURIComponent(text)}`);
+        const user = respon.result.user;
+        const stats = respon.result.stats;
+        let teks = `
+┌──「 *STALKING* 」
+▢ *🔖 Name:* ${user.nickname}
+▢ *🔖 Username:* ${user.uniqueId}
+▢ *👥 Followers:* ${stats.followerCount}
+▢ *🫂 Following:* ${stats.followingCount}
+▢ *📌 Bio:* ${user.signature}
+▢ *🏝️ Posts:* ${stats.videoCount}
+▢ *❣️ Likes:* ${stats.heartCount}
+▢ *🔗 Link:* https://tiktok.com/@${user.uniqueId}
+└────────────`;
+
+        await Bellah.sendMessage(
+            m.chat, 
+            { image: { url: user.avatarLarger }, caption: teks }, 
+            { quoted: loli }
+        );
+    } catch (err) {
+        console.error(err);
+        m.reply(`yooh. Provide valid TikTok username.`);
+    }
+}
+break;		
+		      
+//========================================================================================================================//		      
 		      case "lyrics2": 
  try { 
  if (!text) return reply("Provide a song name!"); 
@@ -674,7 +747,128 @@ break;
          }
         break;	
 		      
+//========================================================================================================================//
+case 'igstalk': {
+if (!args[0]) return m.reply(`Enter Instagram Username\n\nExample: ${prefix + command} giddy_tennor_`)
+const fg = require('api-dylux')
+    try {
+    let res = await fg.igStalk(args[0])
+    let te = `
+┌──「 *STALKING* 
+▢ *🔖Name:* ${res.name} 
+▢ *🔖Username:* ${res.username}
+▢ *👥Follower:* ${res.followersH}
+▢ *🫂Following:* ${res.followingH}
+▢ *📌Bio:* ${res.description}
+▢ *🏝️Posts:* ${res.postsH}
+▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
+└────────────`
+     await Bellah.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: loli})
+      } catch {
+        m.reply(`Make sure the username comes from *Instagram*`)
+      }
+}
+break;		      
+//========================================================================================================================//
+case 'country': {
+				if (!text) return m.reply(' Provide a country name!\nExample: *.country Japan*');
+
+				try {
+					// Panggil API untuk mendapatkan data negara
+					let res = await fetchJson(`https://api.siputzx.my.id/api/tools/countryInfo?name=${encodeURIComponent(text)}`); // Ganti dengan URL API yang sesuai
+		
+					if (!res.status) return m.reply('fetching data .');
+
+					let data = res.data;
+					let continent = `${data.continent.name} ${data.continent.emoji}`;
+
+					// Format informasi negara
+					let info = `🌍 *Information data: ${data.name}*\n\n`;
+					info += `🌐 *Continent:* ${continent}\n`;
+					info += `🏙️ *Capital:* ${data.capital}\n`;
+					info += `📞 *Kode Telephone:* ${data.phoneCode}\n`;
+					info += `💱 *Currency:* ${data.currency}\n`;
+					info += `🗺️ *Map:* ${data.googleMapsLink}\n`;
+					info += `🌐 *TLD Internet:* ${data.internetTLD}\n`;
+					info += `🗣️ *Language:* ${data.languages.native.join(", ")}\n`;
+					info += `🏞️ *Distance:* ${data.area.squareKilometers.toLocaleString()} km² (${data.area.squareMiles.toLocaleString()} mi²)\n`;
+					info += `🚗 *Driving side:* ${data.drivingSide == "Centre" ? "left" : "right"}\n`;
+					info += `⭐ *Famous Traditions:* ${data.famousFor}\n`;
+					info += `🏛️ *Constitutionalform:* ${data.constitutionalForm}\n`;
+					info += `📍 *Coordinates:* ${data.coordinates.latitude}, ${data.coordinates.longitude}`;
+
+					// Kirim informasi bersama gambar bendera
+					await Bellah.sendMessage(m.chat, {
+						image: { url: data.flag },
+						caption: info
+					}, { quoted: loli });
+
+				} catch (error) {
+					console.log(error);
+					m.reply('Failed to get data.');
+				}
+			}
+			break;
+
 //========================================================================================================================//		      
+case 'trackip':
+{
+if (!text) return m.reply(`*Example:* ${prefix + command} 112.90.150.204`);
+try {
+let res = await fetch(`https://ipwho.is/${text}`).then(result => result.json());
+
+const formatIPInfo = (info) => {
+ return `
+*IP Information*
+• IP: ${info.ip || 'N/A'}
+• Success: ${info.success || 'N/A'}
+• Type: ${info.type || 'N/A'}
+• Continent: ${info.continent || 'N/A'}
+• Continent Code: ${info.continent_code || 'N/A'}
+• Country: ${info.country || 'N/A'}
+• Country Code: ${info.country_code || 'N/A'}
+• Region: ${info.region || 'N/A'}
+• Region Code: ${info.region_code || 'N/A'}
+• City: ${info.city || 'N/A'}
+• Latitude: ${info.latitude || 'N/A'}
+• Longitude: ${info.longitude || 'N/A'}
+• Is EU: ${info.is_eu ? 'Yes' : 'No'}
+• Postal: ${info.postal || 'N/A'}
+• Calling Code: ${info.calling_code || 'N/A'}
+• Capital: ${info.capital || 'N/A'}
+• Borders: ${info.borders || 'N/A'}
+• Flag:
+ - Image: ${info.flag?.img || 'N/A'}
+ - Emoji: ${info.flag?.emoji || 'N/A'}
+ - Emoji Unicode: ${info.flag?.emoji_unicode || 'N/A'}
+• Connection:
+ - ASN: ${info.connection?.asn || 'N/A'}
+ - Organization: ${info.connection?.org || 'N/A'}
+ - ISP: ${info.connection?.isp || 'N/A'}
+ - Domain: ${info.connection?.domain || 'N/A'}
+• Timezone:
+ - ID: ${info.timezone?.id || 'N/A'}
+ - Abbreviation: ${info.timezone?.abbr || 'N/A'}
+ - Is DST: ${info.timezone?.is_dst ? 'Yes' : 'No'}
+ - Offset: ${info.timezone?.offset || 'N/A'}
+ - UTC: ${info.timezone?.utc || 'N/A'}
+ - Current Time: ${info.timezone?.current_time || 'N/A'}
+`;
+};
+ 
+if (!res.success) throw new Error(`IP ${text} not found!`);
+await Bellah.sendMessage(m.chat, { location: { degreesLatitude: res.latitude, degreesLongitude: res.longitude } }, { ephemeralExpiration: 604800 });
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+await delay(2000);
+m.reply(formatIPInfo(res)); 
+} catch (e) { 
+m.reply(`Error: Unable to retrieve data for IP ${text}`);
+}
+}
+break;
+		      
+//========================================================================================================================//
+		      
  case "bible":
 		      {
 	if (!text) {

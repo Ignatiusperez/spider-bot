@@ -1621,7 +1621,7 @@ m.reply("*Wait a moment...*");
 //========================================================================================================================//		      
 	      case 'naruto': {		      
 		      if (!text || text == "") {
-      m.reply("Example usage : " + prefix + "naruto spider);
+      m.reply("Example usage : " + prefix + "naruto spider");
       return;
     }
     try {

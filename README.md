@@ -64,7 +64,7 @@
 ## ```⭐ session pair ⭐```
 
    <br>
-   <a href='https://spider-pair-2.onrender.com' target="_blank">
+   <a href='https://pair-code-uvs7.onrender.com' target="_blank">
      <img src='https://img.shields.io/badge/pair_code & qr-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=red&style=flat-square'>
    </a>
 
@@ -99,7 +99,7 @@
 
 ## ❌ Not Available for Deployment on Termux
 
-This script is **not deployable** on Termux. Please use other deployment options like Heroku, Railway, or Replit.
+This script is **not deployable** on Termux but soon it will be. Please use other deployment options like Heroku, Railway, or Replit.
 
 </details>
 

@@ -83,7 +83,7 @@ module.exports = spider = async (client, m, chatUpdate, store) => {
     const qmsg = (quoted.msg || quoted);
     const cmd = body.startsWith(prefix);
     const badword = bad.split(",");
-    const Owner = DevRaven.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
+    const Owner = DevSpider.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net").includes(m.sender)
     
 //========================================================================================================================//		      
 //========================================================================================================================//	      

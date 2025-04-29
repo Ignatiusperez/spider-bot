@@ -138,7 +138,7 @@
 },
   "MENU_LINK": {
       "description": "Paste your Image Url here or use the default one, This will display it on your menu if you set MENU_TYPE as IMAGE.",
-      "value": "https://files.catbox.moe/duv8ac.jpg",
+      "value": "https://files.catbox.moe/ydppf8.png",
       "required": false 
     },  
   "MENU_TYPE": {

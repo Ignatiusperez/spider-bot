@@ -3598,30 +3598,37 @@ const messages = data.messages;
     break;
 
 //========================================================================================================================//
- case "anime": case "random-anime": {
-	const axios = require("axios");
+switch (command) {
 
-  const link = "https://api.jikan.moe/v4/random/anime";
+  case "anime":
+  case "random-anime": {
+    const axios = require("axios");
+    const link = "https://api.jikan.moe/v4/random/anime";
 
-  try {
-    const response = await axios.get(link);
-    const data = response.data.data;
+    try {
+      const response = await axios.get(link);
+      const data = response.data.data;
 
-    const title = data.title;
-    const synopsis = data.synopsis;
-    const imageUrl = data.images.jpg.image_url;
-    const episodes = data.episodes;
-    const status = data.status;
+      const title = data.title;
+      const synopsis = data.synopsis;
+      const imageUrl = data.images.jpg.image_url;
+      const episodes = data.episodes || 'N/A';
+      const status = data.status || 'N/A';
 
-    const message = `📺 Title: ${title}\n🎬 Épisodes: ${episodes}\n📡 Status: ${status}\n📝 Synopsis: ${synopsis}\n🔗 URL: ${data.url}`;
+      const message = `📺 *Title:* ${title}\n🎬 *Episodes:* ${episodes}\n📡 *Status:* ${status}\n📝 *Synopsis:* ${synopsis}\n🔗 *More:* ${data.url}`;
 
-    await client.sendMessage(m.chat, { image: { url: imageUrl }, caption: message }, { quoted: m });
-  } catch (error) {
-    
-   m.reply('𝗢𝗼𝗽𝘀 𝗘𝗿𝗿𝗼𝗿!');
+      await client.sendMessage(m.chat, {
+        image: { url: imageUrl },
+        caption: message
+      }, { quoted: m });
+
+    } catch (error) {
+      console.error("Anime command error:", error);
+      m.reply('❌ *Oops! Failed to fetch anime.*');
+    }
+
+    break;
   }
-	}
-	 break;
 
 //========================================================================================================================//		      
 		 case "news": {

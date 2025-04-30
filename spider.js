@@ -370,7 +370,7 @@ const isFact = Math.random() < 0.5;
 const tip = isFact
   ? `📚 Fact: ${facts[Math.floor(Math.random() * facts.length)]}`
   : `💡 Advice: ${advices[Math.floor(Math.random() * advices.length)]}`;
-    }
+
 // Inject it directly into your main banner
 //========================================================================================================================//	  
     if (antilink === 'TRUE' && body.includes('chat.whatsapp.com') && !Owner && isBotAdmin && !isAdmin && m.isGroup) { 

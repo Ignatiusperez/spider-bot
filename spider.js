@@ -3596,40 +3596,6 @@ const messages = data.messages;
       mentions: [m.sender, m.mentionedJid[0]]
     }, { quoted: m });
     break;
-
-//========================================================================================================================//
-switch (command) {
-
-  case "anime":
-  case "random-anime": {
-    const axios = require("axios");
-    const link = "https://api.jikan.moe/v4/random/anime";
-
-    try {
-      const response = await axios.get(link);
-      const data = response.data.data;
-
-      const title = data.title;
-      const synopsis = data.synopsis;
-      const imageUrl = data.images.jpg.image_url;
-      const episodes = data.episodes || 'N/A';
-      const status = data.status || 'N/A';
-
-      const message = `📺 *Title:* ${title}\n🎬 *Episodes:* ${episodes}\n📡 *Status:* ${status}\n📝 *Synopsis:* ${synopsis}\n🔗 *More:* ${data.url}`;
-
-      await client.sendMessage(m.chat, {
-        image: { url: imageUrl },
-        caption: message
-      }, { quoted: m });
-
-    } catch (error) {
-      console.error("Anime command error:", error);
-      m.reply('❌ *Oops! Failed to fetch anime.*');
-    }
-
-    break;
-  }
-
 //========================================================================================================================//		      
 		 case "news": {
 		      const response = await fetch('https://fantox001-scrappy-api.vercel.app/technews/random');

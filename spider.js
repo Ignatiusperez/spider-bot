@@ -209,65 +209,6 @@ if (antidel === "TRUE") {
         }
 	  }
 //========================================================================================================================//
-if (chatbot === "TRUE" && body.toLowerCase().includes("mkuu")) {
-  const audioPath = './media/mkuu.wav'; // Make sure this file exists
-
-  await client.sendMessage(
-    m.chat,
-    {
-      audio: { url: audioPath },
-      mimetype: 'audio/wav',
-      ptt: true // Set to true if you want it as voice note
-    },
-    { quoted: m }
-  );
-}	  
-//========================================================================================================================// 
-if (
-  antibot === 'TRUE' &&
-  mek.key.id.startsWith('BAE5') &&
-  m.isGroup &&
-  !isAdmin &&
-  isBotAdmin &&
-  mek.key.id.length === 16
-) {
-  const botUser = m.sender;
-  const mediaPath = './media/antibot.gif'; // Optional: Your warning video/GIF
-  const mention = '@' + botUser.split('@')[0];
-
-  // Send warning with media
-  await client.sendMessage(
-    m.chat,
-    {
-      video: { url: mediaPath }, // or use image: { url: ... } for GIF
-      mimetype: 'video/gif',
-      caption: `⚠️ 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 antibot:\n\n${mention} has been identified as a *bot or spam account* and was removed to protect the group.`,
-      contextInfo: {
-        mentionedJid: [botUser]
-      }
-    },
-    { quoted: m }
-  );
-
-  // Remove the suspected bot
-  await client.groupParticipantsUpdate(m.chat, [botUser], 'remove');
-}  
-//========================================================================================================================//	  
-if (chatbot === "TRUE" && body.toLowerCase().includes("hey")) {
-  const audioPath = './media/hey.wav'; // Make sure this file exists
-
-  await client.sendMessage(
-    m.chat,
-    {
-      audio: { url: audioPath },
-      mimetype: 'audio/mpeg',
-      ptt: true // Set to true if you want it as voice note
-    },
-    { quoted: m }
-  );
-}	
-	  
-//========================================================================================================================//	  
 client.sendContact = async (_0x1b8d9c, _0x2f45f4, _0x484fce = '', _0x4ed280 = {}) => {
   let _0x46a6cb = [];
   for (let _0x5856a6 of _0x2f45f4) {
@@ -4895,7 +4836,3 @@ fs.watchFile(file, () => {
   delete require.cache[file];
   require(file);
 });
-
-
- 
-  

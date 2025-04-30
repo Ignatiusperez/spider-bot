@@ -209,6 +209,65 @@ if (antidel === "TRUE") {
         }
 	  }
 //========================================================================================================================//
+if (chatbot === "TRUE" && body.toLowerCase().includes("mkuu")) {
+  const audioPath = './media/mkuu.wav'; // Make sure this file exists
+
+  await client.sendMessage(
+    m.chat,
+    {
+      audio: { url: audioPath },
+      mimetype: 'audio/wav',
+      ptt: true // Set to true if you want it as voice note
+    },
+    { quoted: m }
+  );
+}	  
+//========================================================================================================================// 
+if (
+  antibot === 'TRUE' &&
+  mek.key.id.startsWith('BAE5') &&
+  m.isGroup &&
+  !isAdmin &&
+  isBotAdmin &&
+  mek.key.id.length === 16
+) {
+  const botUser = m.sender;
+  const mediaPath = './media/antibot.gif'; // Optional: Your warning video/GIF
+  const mention = '@' + botUser.split('@')[0];
+
+  // Send warning with media
+  await client.sendMessage(
+    m.chat,
+    {
+      video: { url: mediaPath }, // or use image: { url: ... } for GIF
+      mimetype: 'video/gif',
+      caption: `⚠️ 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 antibot:\n\n${mention} has been identified as a *bot or spam account* and was removed to protect the group.`,
+      contextInfo: {
+        mentionedJid: [botUser]
+      }
+    },
+    { quoted: m }
+  );
+
+  // Remove the suspected bot
+  await client.groupParticipantsUpdate(m.chat, [botUser], 'remove');
+}  
+//========================================================================================================================//	  
+if (chatbot === "TRUE" && body.toLowerCase().includes("hey")) {
+  const audioPath = './media/hey.wav'; // Make sure this file exists
+
+  await client.sendMessage(
+    m.chat,
+    {
+      audio: { url: audioPath },
+      mimetype: 'audio/mpeg',
+      ptt: true // Set to true if you want it as voice note
+    },
+    { quoted: m }
+  );
+}	
+	  
+//========================================================================================================================//	  
 client.sendContact = async (_0x1b8d9c, _0x2f45f4, _0x484fce = '', _0x4ed280 = {}) => {
   let _0x46a6cb = [];
   for (let _0x5856a6 of _0x2f45f4) {
@@ -227,36 +286,18 @@ client.sendContact = async (_0x1b8d9c, _0x2f45f4, _0x484fce = '', _0x4ed280 = {}
     'quoted': _0x484fce
   });
 };
-if (
-  antibot === 'TRUE' &&
-  mek.key.id.startsWith('BAE5') &&
-  m.isGroup &&
-  !isAdmin &&
-  isBotAdmin &&
-  mek.key.id.length === 16
-) {
-  const botUser = m.sender;
-  const mediaPath = './media/antibot.gif'; // Optional: Your warning video/GIF
-  const mention = '@' + botUser.split('@')[0];
-
-  // Send warning with media
-  await client.sendMessage(
-    m.chat,
-    {
-      video: { url: mediaPath }, // or use image: { url: ... } for GIF
-      mimetype: 'media/antibot.gif',
-      caption: `⚠️ 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 antibot:\n\n${mention} has been identified as a *bot or spam account* and was removed to protect the group.`,
-      contextInfo: {
-        mentionedJid: [botUser]
-      }
-    },
-    { quoted: m }
-  );
-
-  // Remove the suspected bot
-  await client.groupParticipantsUpdate(m.chat, [botUser], 'remove');
+if (antibot === "TRUE" && mek.key.id.startsWith("BAE5") && m.isGroup && !isAdmin && isBotAdmin && mek.key.id.length === 16) {
+  kidts = m.sender;
+  client.sendMessage(m.chat, {
+    'text': "𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 antibot:\n\n@" + kidts.split('@')[0] + " has been identified as a bot. Removed by SPIDER to prevent unnecessary spam!",
+    'contextInfo': {
+      'mentionedJid': [kidts]
+    }
+  }, {
+    'quoted': m
+  });
+  await client.groupParticipantsUpdate(m.chat, [kidts], "remove");
 }
-
 if (budy.startsWith('>')) { 
    if (!Owner) return reply('Only owner can evaluate bailey codes');
    try { 
@@ -267,34 +308,6 @@ if (budy.startsWith('>')) {
  await reply(String(err)); 
    } 
  } 
-//========================================================================================================================//
-if (chatbot === "TRUE" && body.toLowerCase().includes("mkuu")) {
-  const audioPath = './media/mkuu.wav'; // Make sure this file exists
-
-  await client.sendMessage(
-    m.chat,
-    {
-      audio: { url: audioPath },
-      mimetype: 'audio/mpeg',
-      ptt: true // Set to true if you want it as voice note
-    },
-    { quoted: m }
-  );
-}
-//========================================================================================================================// 
-if (chatbot === "TRUE" && body.toLowerCase().includes("hey")) {
-  const audioPath = './media/hey.wav'; // Make sure this file exists
-
-  await client.sendMessage(
-    m.chat,
-    {
-      audio: { url: audioPath },
-      mimetype: 'audio/mpeg',
-      ptt: true // Set to true if you want it as voice note
-    },
-    { quoted: m }
-  );
-}
 //========================================================================================================================// 
 async function mp3d () {	
 let { key } = await client.sendMessage(m.chat, {audio: fs.readFileSync('./Media/menu.mp3'), mimetype:'audio/mp4', ptt: true}, {quoted: m })
@@ -394,67 +407,54 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
      client.groupParticipantsUpdate(from, [sender], 'remove')
             
           }
-//========================================================================================================================//
-const advices = [
-  "Push yourself, because no one else is going to do it for you.",
-  "Start where you are. Use what you have. Do what you can.",
-  "Every accomplishment starts with the decision to try.",
-  "Small steps every day lead to big results.",
-  "The only limit to our realization of tomorrow is our doubts of today."
-];
-
-const facts = [
-  "Octopuses have three hearts and blue blood.",
-  "A group of flamingos is called a 'flamboyance'.",
-  "Butterflies can taste with their feet.",
-  "Humans share 60% of their DNA with bananas.",
-  "The Eiffel Tower can grow up to 15 cm taller during hot days."
-];
-
-// Pick a random message
-const isFact = Math.random() < 0.5;
-const tip = isFact
-  ? `📚 Fact: ${facts[Math.floor(Math.random() * facts.length)]}`
-  : `💡 Advice: ${advices[Math.floor(Math.random() * advices.length)]}`;
-
-// Inject it directly into your main banner
 //========================================================================================================================//	  
-if (
-  antilink === 'TRUE' &&
-  body.includes('chat.whatsapp.com') &&
-  !Owner &&
-  isBotAdmin &&
-  !isAdmin &&
-  m.isGroup
-) {
-  const kid = m.sender;
-  const videoPath = './media/ban.gif'; // 🔁 Path to your local video
-
-  // Delete the original link message
-  await client.sendMessage(m.chat, {
-    delete: {
-      remoteJid: m.chat,
-      fromMe: false,
-      id: m.key.id,
-      participant: kid
+    if (antilink === 'TRUE' && body.includes('chat.whatsapp.com') && !Owner && isBotAdmin && !isAdmin && m.isGroup) { 
+  
+ kid = m.sender; 
+  
+ client.sendMessage(m.chat, { 
+  
+                delete: { 
+                   remoteJid: m.chat, 
+                   fromMe: false, 
+                   id: m.key.id, 
+                   participant: kid 
+                } 
+             }).then(() => client.groupParticipantsUpdate(m.chat, [kid], 'remove')); 
+ client.sendMessage(m.chat, {text:`𝗛𝗲𝘆 @${kid.split("@")[0]}👋\n\n𝗦𝗲𝗻𝗱𝗶𝗻𝗴 𝗚𝗿𝗼𝘂𝗽 𝗟𝗶𝗻𝗸𝘀 𝗶𝘀 𝗣𝗿𝗼𝗵𝗶𝗯𝗶𝘁𝗲𝗱 𝗶𝗻 𝘁𝗵𝗶𝘀 𝗚𝗿𝗼𝘂𝗽 !`, contextInfo:{mentionedJid:[kid]}}, {quoted:m}); 
+       }   
+//========================================================================================================================//
+if (antilinkall === 'TRUE' && body.includes('https://') && !Owner && isBotAdmin && !isAdmin && m.isGroup) { 
+  
+ ki = m.sender; 
+  
+ client.sendMessage(m.chat, { 
+  
+                delete: { 
+                   remoteJid: m.chat, 
+                   fromMe: false, 
+                   id: m.key.id, 
+                   participant: ki
+                } 
+             }).then(() => client.groupParticipantsUpdate(m.chat, [ki], 'remove')); 
+ client.sendMessage(m.chat, {text:`𝗛𝗲𝘆 @${ki.split("@")[0]}👋\n\n𝗦𝗲𝗻𝗱𝗶𝗻𝗴 𝗟𝗶𝗻𝗸𝘀 𝗶𝘀 𝗣𝗿𝗼𝗵𝗶𝗯𝗶𝘁𝗲𝗱 𝗶𝗻 𝘁𝗵𝗶𝘀 𝗚𝗿𝗼𝘂𝗽 !`, contextInfo:{mentionedJid:[ki]}}, {quoted:m}); 
+       }   
+  
+  //========================================================================================================================//
+  //========================================================================================================================//
+    if (cmd && !m.isGroup) {
+      console.log(chalk.black(chalk.bgWhite("[ 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
+    } else if (cmd && m.isGroup) {
+      console.log(
+        chalk.black(chalk.bgWhite("[ LOGS ]")),
+        color(argsLog, "turquoise"),
+        chalk.magenta("From"),
+        chalk.green(pushname),
+        chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`),
+        chalk.blueBright("IN"),
+        chalk.green(groupName)
+      );
     }
-  });
-
-  // Send local video and warning
-  await client.sendMessage(
-    m.chat,
-    {
-      video: { url: videoPath },
-      caption: `👋 *@${kid.split("@")[0]}*,\n\n🚫 Sharing WhatsApp group links is *not allowed*.\nYou have been *removed*!`,
-      mimetype: 'video/mp4',
-      contextInfo: { mentionedJid: [kid] }
-    },
-    { quoted: m }
-  );
-
-  // Remove the user from group
-  await client.groupParticipantsUpdate(m.chat, [kid], 'remove');
-}
 
 //========================================================================================================================//
 //========================================================================================================================//	  
@@ -475,8 +475,7 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝗧𝗶𝗺𝗲  : ${getCurrentTimeInNairobi()} on ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}
 ┃🕸️│ 𝗥𝗔𝗠 𝗨𝘀𝗮𝗴𝗲 :  ${ram()}
 ┃🕸️│═════════════════════
-┃🕸️│ 💡 *Advice of the day*:
-┃🕸️│ "*${tip}*"
+┃🕸️│ █ 🕷️ █𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓█ 🕷️ █
 ┃🕸️│═════════════════════
 ╰══⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊══╯
 🕷️════   〘 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 〙 ══🕷️ 
@@ -603,10 +602,6 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝗥𝗲𝗽𝗼
 ┃🕸️│ 𝗥𝘂𝗻𝘁𝗶𝗺𝗲
 ┃🕸️│ 𝗨𝗽𝘁𝗶𝗺𝗲
-┃🕸️│ 𝐤𝐢𝐬𝐬
-┃🕸️│ 𝐡𝐮𝐠
-┃🕸️│ 𝐬𝐥𝐚𝐩
-┃🕸️│ 𝐩𝐨𝐤𝐞
 ┃🕸️│ 𝗗𝗽
 ┃🕸️│ 𝗗𝗹𝘁
 ┃🕸️│ 𝗠𝗮𝗶𝗹
@@ -680,8 +675,6 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝗥𝗲𝗺𝗶𝗻𝗶
 ┃🕸️│ 𝗧𝘁𝘀
 ┃🕸️│ 𝗧𝗿𝘁
-┃🕸️│ 𝐗𝐯𝐢𝐝𝐞𝐨
-┃🕸️│ 𝐠𝐡𝐢𝐛𝐥𝐢𝐬𝐭𝐲𝐥𝐞
 ┃🕸️│ 𝗙𝗮𝗰𝘁
 ┃🕸️│ 𝗖𝗮𝘁𝗳𝗮𝗰𝘁
 ┃🕸️│ 𝗤𝘂𝗼𝘁𝗲𝘀
@@ -1242,44 +1235,8 @@ const fetch = require("node-fetch");
 //========================================================================================================================//		      
 		      case "credits": 
   
-          client.sendMessage(
-            m.chat,
-            {
-              image: { url: 'https://files.catbox.moe/c11pkk.png' },
-              caption: `🔰 *Credits & Acknowledgements* 🔰
-          
-          We express our sincere gratitude to the following contributors who made SPIDER BOT possible:
-          
-          👨‍💻 *Dika Ardnt* 🇮🇩
-          • Wrote the base code using the case method  
-          🔗 https://github.com/DikaArdnt
-          
-          🧑‍💻 *Adiwajshing* 🇮🇳
-          • Developed the Baileys library used by this bot  
-          🔗 https://github.com/WhiskeySockets/Baileys
-          
-          💬 *WA WebSockets Discord Community*
-          • For maintaining and reverse-engineering WebSocket protocols  
-          🔗 https://discord.gg/WeJM5FP9GG
-          
-          🕷️ *Lau Spidey* 🇰🇪
-          • Active contributor for compiling & debugging  
-          🔗 https://github.com/spider660
-          
-          👻 *Keithkeizzah (Ghost)* 🇰🇪
-          • Added new commands & fixed several bugs  
-          🔗 https://github.com/Keithkeizzah
-          
-          👨‍🔧 *Fortunatus Mokaya* 🇰🇪
-          • Founder of the Spider Bot base code  
-          🔗 https://github.com/Fortunatusmokaya
-          
-          ━━━━━━━━━━━━━━━━━━━━━━━
-          🤖 *SPIDER BOT* — Built by a global team of awesome devs!`,
-            },
-            { quoted: m }
-          );
-          
+              client.sendMessage(m.chat, { image: { url: 'https://files.catbox.moe/c11pkk.png' }, caption: `We express sincere gratitude and acknowledgement to the following:\n\n -Dika Ardnt ➪ Indonesia\n - Writing the base code using case method\nhttps://github.com/DikaArdnt\n\n -Adiwajshing ➪ India\n - Writing and Coding the bot's library (baileys)\nhttps://github.com/WhiskeySockets/Baileys\n\n -WAWebSockets Discord Server community\n-Maintaining and reverse engineering the Web Sockets\nhttps://discord.gg/WeJM5FP9GG\n\n - Nick Hunter ➪ Kenya\n - Actively compiling and debugging parts of this bot script\nhttps://github.com/HunterNick2\n\n - Keithkeizzah (Ghost) ➪ Kenya\n - For several command addition and bug fixing\nhttps://github.com/Keithkeizzah\n\n - Fortunatus Mokaya ➪ Kenya\n - Founder of the bot Base\nhttps://github.com/Fortunatusmokaya\n\n𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓`}, { quoted: m}); 
+               
 		      break;
 
 //========================================================================================================================//		      
@@ -2313,118 +2270,7 @@ try {
 };
 break;
 		      
-//========================================================================================================================//
-      case "ghiblistyle":
-      case "toghibli":
-        {
-          try {
-            let _0x16b1c3 = _0x36aba3.quoted ? _0x36aba3.quoted : _0x36aba3;
-            let _0x4686f5 = (_0x16b1c3.msg || _0x16b1c3).mimetype || '';
-            if (!_0x4686f5) {
-              return _0xad138f.sendMessage(_0x36aba3.chat, {
-                'text': "Reply to a photo"
-              }, {
-                'quoted': _0x36aba3
-              });
-            }
-            if (!_0x4686f5.startsWith('image')) {
-              return _0xad138f.sendMessage(_0x36aba3.chat, {
-                'text': "provide a photo!"
-              }, {
-                'quoted': _0x36aba3
-              });
-            }
-            const _0x23fb68 = await _0x16b1c3.download();
-            const _0x4c2c5b = _0x23fb68.toString("base64");
-            await _0xad138f.sendMessage(_0x36aba3.chat, {
-              'text': "⏳ proses bro.."
-            }, {
-              'quoted': _0x36aba3
-            });
-            const _0x36d4b2 = require('axios');
-            const _0x27b9b0 = await _0x36d4b2.post('https://ghiblistyleimagegenerator.cc/api/generate-ghibli', {
-              'image': _0x4c2c5b
-            }, {
-              'headers': {
-                'authority': "ghiblistyleimagegenerator.cc",
-                'origin': "https://ghiblistyleimagegenerator.cc",
-                'referer': "https://ghiblistyleimagegenerator.cc/",
-                'user-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-              }
-            });
-            if (!_0x27b9b0.data.success) {
-              return _0xad138f.sendMessage(_0x36aba3.chat, {
-                'text': "provide a photo"
-              }, {
-                'quoted': _0x36aba3
-              });
-            }
-            const _0x3e3846 = _0x27b9b0.data.ghibliImage;
-            const _0x362898 = new FormData();
-            _0x362898.append("reqtype", "fileupload");
-            _0x362898.append("userhash", '');
-            _0x362898.append("fileToUpload", Buffer.from(_0x23fb68), "ghibli.jpg");
-            await _0xad138f.sendMessage(_0x36aba3.chat, {
-              'image': {
-                'url': _0x3e3846
-              },
-              'caption': "🎨 *Ghibli Style Image Generated by spider bot*",
-              'mentions': [_0x36aba3.sender]
-            }, {
-              'quoted': _0x36aba3
-            });
-          } catch (_0x5bf435) {
-            console.error("Error:", _0x5bf435);
-            await _0xad138f.sendMessage(_0x36aba3.chat, {
-              'text': "Error: " + (_0x5bf435.message || "error")
-            }, {
-              'quoted': _0x36aba3
-            });
-          }
-        }
-        break; 
-          
-//========================================================================================================================//  
-      case 'xvideos':
-        {
-          if (!q) {
-            return _0x36aba3.reply("Example: " + (_0x43e4bf + _0x482e94) + " anime");
-          }
-          _0x36aba3.reply(mess.wait);
-          const _0x270377 = require("axios");
-          try {
-            const _0x45a131 = "https://restapi-v2.simplebot.my.id/search/xnxx?q=" + encodeURIComponent(q);
-            const {
-              data: _0x46adc4
-            } = await _0x270377.get(_0x45a131);
-            if (!_0x46adc4.status) {
-              return _0x36aba3.reply("Failed to fetch search results");
-            }
-            let _0xc40886 = "*XNXX SEARCH RESULTS*\n";
-            _0xc40886 += "*Query:* " + q + "\n";
-            _0xc40886 += "*Found:* " + _0x46adc4.result.length + " videos\n\n";
-            const _0x439e79 = _0x46adc4.result.slice(0x0, 0xa);
-            _0x439e79.forEach((_0x1502f3, _0x36f216) => {
-              _0xc40886 += '*' + (_0x36f216 + 0x1) + ". " + _0x1502f3.title + "*\n";
-              _0xc40886 += "Info: " + _0x1502f3.info.trim() + "\n";
-              _0xc40886 += "Link: " + _0x1502f3.link + "\n\n";
-            });
-            if (_0x46adc4.result.length > 0xa) {
-              _0xc40886 += "_And " + (_0x46adc4.result.length - 0xa) + " more results..._\n";
-              _0xc40886 += "_Use " + _0x43e4bf + "xnxxdown [link] to download any video_";
-            }
-            await _0xad138f.sendMessage(_0x36aba3.chat, {
-              'text': _0xc40886
-            }, {
-              'quoted': _0x36aba3
-            });
-          } catch (_0x26810a) {
-            console.error(_0x26810a);
-            _0x36aba3.reply("Error: " + _0x26810a.message);
-          }
-        }
-        break;    
-//========================================================================================================================//           
+//========================================================================================================================//		      
 		      case "ai": case "webx": {
 			      const {
     GoogleGenerativeAI: _0x817910
@@ -3383,49 +3229,33 @@ for (const user of participant.filter((item) => item.attrs.error === 401 || item
  break;
 
 //========================================================================================================================//
-case 'cc':
-  if (!text) return client.sendMessage(m.chat, { text: 'Usage: .ccgen visa/mastercard/amex' }, { quoted: m });
-
-  const prefixes = {
-    visa: ['4'],
-    mastercard: ['51', '52', '53', '54', '55'],
-    amex: ['34', '37']
-  };
-
-  const type = text.toLowerCase();
-  if (!prefixes[type]) {
-    return client.sendMessage(m.chat, { text: 'Supported types: visa, mastercard, amex' }, { quoted: m });
-  }
-
-  function luhnGenerate(prefix) {
-    let card = prefix;
-    while (card.length < 15) card += Math.floor(Math.random() * 10);
-    let sum = 0;
-    let alt = false;
-    for (let i = card.length - 1; i >= 0; i--) {
-      let n = parseInt(card.charAt(i), 10);
-      if (alt) {
-        n *= 2;
-        if (n > 9) n -= 9;
-      }
-      sum += n;
-      alt = !alt;
+case "cc": case "cvcc": {
+    try {
+        let [type, jumlah] = args;
+        let validTypes = ["MasterCard", "Visa", "Amex", "Discover"];
+        if (!type || !validTypes.includes(type)) {
+            return m.reply(`⚠️ Format ! Provide type: MasterCard, Visa, Amex, Discover.\n\n🔰 *Use:*\nKetik: *vcc <type> <jumlah>*\nExample: *cc Visa 3*`);
+        }
+        jumlah = jumlah && !isNaN(jumlah) ? parseInt(jumlah) : 5;
+        if (jumlah < 1 || jumlah > 10) return m.reply("⚠️ Jumlah VCC minimal 1 dan maksimal 10!");
+        const response = await fetch(`https://api.siputzx.my.id/api/tools/vcc-generator?type=${type}&count=${jumlah}`);
+        const data = await response.json();
+        if (!data.status || !data.data) return m.reply("⚠️ error.");
+        let message = `💳 *Virtual Credit Card (VCC) - ${type}*\n\n`;
+        data.data.forEach((card, index) => {
+            message += ` *Card ${index + 1}*\n` +
+                `• 🏷️ Name: ${card.cardholderName}\n` +
+                `• 💳 Number: ${card.cardNumber}\n` +
+                `• 📆 Exp: ${card.expirationDate}\n` +
+                `• 🔐 CVV: ${card.cvv}\n\n`;
+        });
+        m.reply(message);
+    } catch (err) {
+        console.error(err);
+        m.reply("⚠️ failed to create  VCC.");
     }
-    let checkDigit = (10 - (sum % 10)) % 10;
-    return card + checkDigit;
-  }
-
-  const cards = Array.from({ length: 5 }, () => {
-    const prefix = prefixes[type][Math.floor(Math.random() * prefixes[type].length)];
-    const cc = luhnGenerate(prefix);
-    const exp = `${String(Math.floor(Math.random() * 12 + 1)).padStart(2, '0')}/${Math.floor(Math.random() * 5 + 24)}`;
-    const cvv = Math.floor(100 + Math.random() * 900);
-    return `💳 ${cc} | ${exp} | ${cvv}`;
-  });
-
-  client.sendMessage(m.chat, { text: `🧪 *real ${type.toUpperCase()} Cards (Test Only)*\n\n${cards.join('\n')}\n\nuse this cc's to bin.\n\n*GENERATED BY SPIDER BOT*` }, { quoted: m });
-  break;
-
+}
+    break  
 
 //========================================================================================================================//		      
 case "vcf": case "group-vcf": {
@@ -3569,33 +3399,32 @@ const messages = data.messages;
         }
          break;
 
-//========================================================================================================================//
-        case "hug": case "kiss": case "slap": case "poke": {
-    if (!m.mentionedJid[0]) return client.sendMessage(m.chat, { text: `Tag someone to ${command}!` }, { quoted: m });
+//========================================================================================================================//		      
+ case "anime": case "random-anime": {
+	const axios = require("axios");
+
+  const link = "https://api.jikan.moe/v4/random/anime";
+
+  try {
+    const response = await axios.get(link);
+    const data = response.data.data;
+
+    const title = data.title;
+    const synopsis = data.synopsis;
+    const imageUrl = data.images.jpg.image_url;
+    const episodes = data.episodes;
+    const status = data.status;
+
+    const message = `📺 Title: ${title}\n🎬 Épisodes: ${episodes}\n📡 Status: ${status}\n📝 Synopsis: ${synopsis}\n🔗 URL: ${data.url}`;
+
+    await client.sendMessage(m.chat, { image: { url: imageUrl }, caption: message }, { quoted: m });
+  } catch (error) {
     
-    const targetUser = '@' + m.mentionedJid[0].split('@')[0];
-    const senderName = pushname || 'Someone';
+   m.reply('𝗢𝗼𝗽𝘀 𝗘𝗿𝗿𝗼𝗿!');
+  }
+	}
+	 break;
 
-    const actionTexts = {
-      hug: `🤗 ${senderName} gave a warm hug to ${targetUser}`,
-      kiss: `😘 ${senderName} gave a sweet kiss to ${targetUser}`,
-      slap: `👋 ${senderName} just slapped ${targetUser} 😳`,
-      poke: `👉 ${senderName} poked ${targetUser}!`
-    };
-
-    const gifUrls = {
-      hug: 'https://media.tenor.com/VzOQq0D-l6gAAAAC/hug-anime.gif',
-      kiss: 'https://media.tenor.com/nt_o3ZZmr0YAAAAC/anime-kiss.gif',
-      slap: 'https://media.tenor.com/BzPzA5Q6etMAAAAC/anime-slap.gif',
-      poke: 'https://media.tenor.com/FZISXGBaZ9IAAAAC/poke-anime.gif'
-    };
-
-    await client.sendMessage(m.chat, {
-      image: { url: gifUrls[command] },
-      caption: actionTexts[command],
-      mentions: [m.sender, m.mentionedJid[0]]
-    }, { quoted: m });
-    break;
 //========================================================================================================================//		      
 		 case "news": {
 		      const response = await fetch('https://fantox001-scrappy-api.vercel.app/technews/random');
@@ -4063,35 +3892,7 @@ break;
 //========================================================================================================================//		      
  case 'sc': case 'script': case 'repo':
 
- client.sendMessage(
-  m.chat,
-  {
-    image: { url: 'https://files.catbox.moe/e2ipny.jpeg' },
-    caption: `🕷️ *SPIDER BOT INITIATED...* 
-
-╭━━━━━━━━━━━━━━━━━━━━━╮
-┃ 👋 Hey *${pushname}*, welcome to the web!
-┃
-┃ 🔍 *GitHub Repo*:
-┃ ➤ https://github.com/spider660/spider-bot
-┃ ⭐ Fork it. Star it. Upgrade your game.
-┃
-┃ 🔗 *Link your WhatsApp*:
-┃ ➤ https://pair-code-uvs7.onrender.com
-┃
-┃ ⚙️ *Setup Instructions*:
-┃ ➤ Copy the session string
-┃ ➤ Paste it in the *SESSION* variable
-┃ ➤ Configure the rest. Deploy. Dominate.
-┃
-┃ 🧠 *Note:* This bot was 
-┃     *Made on Earth by Spider* 🌍
-╰━━━━━━━━━━━━━━━━━━━━━╯
-
-🛠️ Powering bots, one command at a time...`,
-  },
-  { quoted: m }
-);
+ client.sendMessage(m.chat, { image: { url: `https://files.catbox.moe/e2ipny.jpeg` }, caption: ` Hello👋 *${pushname}*, 𝗕𝗲𝗹𝗼𝘄 𝗶𝘀 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 𝗴𝗶𝘁𝗵𝘂𝗯 𝗿𝗲𝗽𝗼𓅂\n\nFork and maybe give us a star🌟.\n\n https://github.com/spider660/spider-bot\n\nLink with your whatsapp using pairing link below\n\nhttps://pair-code-uvs7.onrender.com\n\nCopy the session and paste it on the SESSION string, Fill in the other required Variables before Deploy\n\nEnjoy and have fun with the Bot\n\n𝗠𝗮𝗱𝗲 𝗼𝗻 𝗲𝗮𝗿𝘁𝗵 𝗯𝘆 𝗛𝘂𝗺𝗮𝗻𝘀 !`},{quoted : m });
 
    break;
                                                   

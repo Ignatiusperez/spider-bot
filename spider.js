@@ -348,6 +348,30 @@ if (badwordkick === 'TRUE' && isBotAdmin && !isAdmin && body && (new RegExp('\\b
      client.groupParticipantsUpdate(from, [sender], 'remove')
             
           }
+//========================================================================================================================//
+const advices = [
+  "Push yourself, because no one else is going to do it for you.",
+  "Start where you are. Use what you have. Do what you can.",
+  "Every accomplishment starts with the decision to try.",
+  "Small steps every day lead to big results.",
+  "The only limit to our realization of tomorrow is our doubts of today."
+];
+
+const facts = [
+  "Octopuses have three hearts and blue blood.",
+  "A group of flamingos is called a 'flamboyance'.",
+  "Butterflies can taste with their feet.",
+  "Humans share 60% of their DNA with bananas.",
+  "The Eiffel Tower can grow up to 15 cm taller during hot days."
+];
+
+// Pick a random message
+const isFact = Math.random() < 0.5;
+const tip = isFact
+  ? `📚 Fact: ${facts[Math.floor(Math.random() * facts.length)]}`
+  : `💡 Advice: ${advices[Math.floor(Math.random() * advices.length)]}`;
+    }
+// Inject it directly into your main banner
 //========================================================================================================================//	  
     if (antilink === 'TRUE' && body.includes('chat.whatsapp.com') && !Owner && isBotAdmin && !isAdmin && m.isGroup) { 
   
@@ -407,8 +431,6 @@ if (antilinkall === 'TRUE' && body.includes('https://') && !Owner && isBotAdmin 
 		      await mp3d ()
 		      
 let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══════〘 𝐒𝐏𝐈𝐃𝐄𝐑  𝗕𝗢𝗧 〙══════╮
-
-
 ┃🕸️╭═⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊
 ┃🕸️│ 𝐎𝐰𝐧𝐞𝐫 : 𝐋𝐚𝐮 𝐒𝐩𝐢𝐝𝐞𝐲
 ┃🕸️│ 𝗨𝘀𝗲𝗿  : ${m.pushName}
@@ -418,7 +440,8 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝗧𝗶𝗺𝗲  : ${getCurrentTimeInNairobi()} on ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}
 ┃🕸️│ 𝗥𝗔𝗠 𝗨𝘀𝗮𝗴𝗲 :  ${ram()}
 ┃🕸️│═════════════════════
-┃🕸️│ █ 🕷️ █𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓█ 🕷️ █
+┃🕸️│ 💡 *Advice of the day*:
+┃🕸️│ "${tip}"
 ┃🕸️│═════════════════════
 ╰══⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊══╯
 🕷️════   〘 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 〙 ══🕷️ 

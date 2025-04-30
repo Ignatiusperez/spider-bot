@@ -214,7 +214,7 @@ client.sendContact = async (_0x1b8d9c, _0x2f45f4, _0x484fce = '', _0x4ed280 = {}
   for (let _0x5856a6 of _0x2f45f4) {
     _0x46a6cb.push({
       'displayName': "SPIDER BUOY",
-	      'vcard': "BEGIN:VCARD\nVERSION:3.0\nN: SPIDER DEV\nFN:𝐒𝐏𝐈𝐃𝐄𝐑 DEV\nitem1.TEL;waid=" + _0x5856a6 + ':' + _0x5856a6 + "\nitem1.X-ABLabel:Number\nitem2.EMAIL;type=INTERNET:webxbuoy@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:i dont knock i bypass\nitem3.X-ABLabel:slogan\nitem4.ADR:;;Kenya;;;;\nitem4.X-ABLabel:Region\nEND:VCARD"
+	      'vcard': "BEGIN:VCARD\nVERSION:3.0\nN: SPIDER DEV\nFN:𝐒𝐏𝐈𝐃𝐄𝐑 DEV\nitem1.TEL;waid=" + _0x5856a6 + ':' + _0x5856a6 + "\nitem1.X-ABLabel:Number\nitem2.EMAIL;type=INTERNET:webxbuoy@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:founder of spider bot\nitem3.X-ABLabel:slogan\nitem4.ADR:;;Kenya;;;;\nitem4.X-ABLabel:Region\nEND:VCARD"
     });
   }
   client.sendMessage(_0x1b8d9c, {

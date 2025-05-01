@@ -3833,10 +3833,9 @@ break;
 //========================================================================================================================//		      
  case 'sc': case 'script': case 'repo':
 
- client.sendMessage(m.chat, { image: { url: `https://files.catbox.moe/e2ipny.jpeg` }, caption: ` Hello👋 *${pushname}*, 𝗕𝗲𝗹𝗼𝘄 𝗶𝘀 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 𝗴𝗶𝘁𝗵𝘂𝗯 𝗿𝗲𝗽𝗼𓅂\n\nFork and maybe give us a star🌟.\n\n https://github.com/spider660/spider-bot\n\nLink with your whatsapp using pairing link below\n\nhttps://pair-code-uvs7.onrender.com\n\nCopy the session and paste it on the SESSION string, Fill in the other required Variables before Deploy\n\nEnjoy and have fun with the Bot\n\n𝗠𝗮𝗱𝗲 𝗼𝗻 𝗲𝗮𝗿𝘁𝗵 𝗯𝘆 𝗛𝘂𝗺𝗮𝗻𝘀 !`},{quoted : m });
-
-   break;
-                                                  
+ client.sendMessage(m.chat, { image: { url: `https://files.catbox.moe/e2ipny.jpeg` }, caption: ` Hello👋 *${pushname}*, 𝗕𝗲𝗹𝗼𝘄 𝗶𝘀 𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓 𝗴𝗶𝘁𝗵𝘂𝗯 𝗿𝗲𝗽𝗼𓅂\n\n${pushname} Fork and maybe give us a star🌟.\n\nhttps://github.com/spider660/spider-bot\n\nLink with your whatsapp using pairing link below\n\nhttps://pair-code-uvs7.onrender.com\n\n🔧 Copy the session ID, paste it into the SESSION field,
+then complete the other required variables before deployment.Make sure everything is set for a smooth run!\n\nEnjoy and have fun with the Bot\n\n𝗠𝗮𝗱𝗲 𝗼𝗻 𝗲𝗮𝗿𝘁𝗵 𝗯𝘆 *lau* !`},{quoted : m });
+   break;                                          
 //========================================================================================================================//
 		      case 'closetime':
                 if (!m.isGroup) throw group;

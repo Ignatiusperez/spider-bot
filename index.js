@@ -63,15 +63,25 @@ async function startSpider() {
     syncFullHistory: true,
   });
 
-  if (autobio === 'TRUE') {
-    setInterval(() => {
-      const date = new Date();
-      client.updateProfileStatus(
-        `📅 𝙳𝙰𝚃𝙴/𝚃𝙸𝙼𝙴 ⌚️  ${date.toLocaleString('en-US', { timeZone: 'Africa/Nairobi' })}  ⏰️ 𝙳𝙰𝚈 ⏰️  ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}. 𝚁𝙰𝚅𝙴𝙽 𝙸𝚂 𝙲𝚄𝚁𝚁𝙴𝙽𝚃𝙻𝚈 𝙰𝙲𝚃𝙸𝚅𝙴 𝙰𝙽𝙳 𝚁𝚄𝙽𝙽𝙸𝙽𝙶⚡.`
-      );
-    }, 10 * 1000);
-  }
+ if (autobio === 'TRUE') {
+  const quotes = [
+    "Believe in yourself and all that you are.",
+    "Push yourself, because no one else is going to do it for you.",
+    "Your limitation—it’s only your imagination.",
+    "Great things never come from comfort zones.",
+    "Dream it. Wish it. Do it.",
+    "Success doesn’t just find you. You have to go out and get it.",
+    "Don’t stop when you’re tired. Stop when you’re done.",
+    "Do something today that your future self will thank you for.",
+    "Small steps every day lead to big results.",
+    "Stay focused and never give up."
+  ];
 
+  setInterval(() => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    client.updateProfileStatus(`💬 ${randomQuote}`);
+  }, 60 * 1000); // Update every 60 seconds
+}
   store.bind(client.ev);
 
   client.ev.on("messages.upsert", async (chatUpdate) => {

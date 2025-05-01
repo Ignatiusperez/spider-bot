@@ -285,7 +285,37 @@ lastTextTime = currentTime;
         m.reply("I am unable to generate text\n\n" + e);
     }
 }
-//========================================================================================================================//
+//========================================================================================================================// 
+const adviceList = [
+  "Take breaks. Rest is part of productivity.",
+  "Focus on progress, not perfection.",
+  "Discipline beats motivation.",
+  "Protect your energy. Not everyone deserves access to you.",
+  "Be kind to yourself — you're growing every day.",
+  "Don't compare your chapter 1 to someone else's chapter 10.",
+  "Mindset is everything. Think strong, live strong.",
+  "Every day is a chance to improve — even a little.",
+  "Silence is powerful. Let your actions speak.",
+  "Stay consistent. That’s where success grows.",
+];
+
+const randomAdvice = adviceList[Math.floor(Math.random() * adviceList.length)];
+//========================================================================================================================// 
+const facts = [
+  "🕸️ Spider-Bot: Swinging into action, always online!",
+  "🕷️ Built with precision, coded for greatness — I’m Spider-Bot.",
+  "🌐 Spider-Bot: Your friendly digital companion from the Web!",
+  "💻 Quick, smart, and one step ahead — Spider-Bot never sleeps.",
+  "⚡ Spider-Bot: Crawling the net to serve you better.",
+  "🧠 Spider-Bot sees all. Miss nothing. Forget nothing.",
+  "🕸️ From the web, for the web — Spider-Bot is live!",
+  "🔍 Spider-Bot: Watching, learning, responding. Just like that.",
+  "🎯 With great code comes great functionality — I’m Spider-Bot.",
+  "🕸️ Trust the spider. Spider-Bot always connects the threads.",
+];
+
+const randomFact = facts[Math.floor(Math.random() * facts.length)];		  
+//========================================================================================================================//		  
 if (antitag === 'TRUE' && !Owner && isBotAdmin && !isAdmin && m.mentionedJid && m.mentionedJid.length > 10) {
         if (itsMe) return;
 
@@ -416,7 +446,8 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝗧𝗶𝗺𝗲  : ${getCurrentTimeInNairobi()} on ${date.toLocaleString('en-US', { weekday: 'long', timeZone: 'Africa/Nairobi'})}
 ┃🕸️│ 𝗥𝗔𝗠 𝗨𝘀𝗮𝗴𝗲 :  ${ram()}
 ┃🕸️│═════════════════════
-┃🕸️│ █ 🕷️ █𝐒𝐏𝐈𝐃𝐄𝐑 𝐁𝐎𝐓█ 🕷️ █
+┃🕸️│ 💡 𝗧𝗢𝗗𝗔𝗬'𝗦 𝗔𝗗𝗩𝗜𝗖𝗘: 
+┃🕸️│ *"${randomAdvice}"*
 ┃🕸️│═════════════════════
 ╰══⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊══╯
 🕷️════   〘 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 〙 ══🕷️ 
@@ -639,7 +670,8 @@ let cap = `𝗛𝗲𝘆 𝘁𝗵𝗲𝗿𝗲😁, ${getGreeting()}\n\n╭══�
 ┃🕸️│ 𝐜𝐨𝐮𝐧𝐭𝐫𝐲
 ┃🕸️│ 𝐜𝐚𝐥𝐜𝐮𝐥𝐚𝐭𝐨𝐫
 ┃🕸️│═⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊
-┃🕸️│  𝗠𝗮𝗱𝗲 𝗢𝗻 𝗘𝗮𝗿𝘁𝗵 𝗕𝘆 𝐒𝐏𝐈𝐃𝐄𝐑!
+┃🕸️│ 🌟 𝗦𝗣𝗜𝗗𝗘𝗥-𝗕𝗢𝗧 𝗦𝗧𝗔𝗧𝗨𝗦:
+┃🕸️│  ${randomFact}
 ╰═══════════════════════╯`;
 
 if (menu === 'VIDEO') {

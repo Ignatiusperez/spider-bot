@@ -55,7 +55,7 @@ async function startSpider() {
     )
   );
 
-  const client = ravenConnect({
+  const client = spiderConnect({
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
     browser: ["SPIDER-AI", "Safari", "5.1.7"],

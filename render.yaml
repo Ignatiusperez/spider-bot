@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: Spilux-MD
+    env: docker
+    region: Frankfurt
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm run spiluxtech"
+    envVars:
+      - key: PORT
+        value: "3000"
